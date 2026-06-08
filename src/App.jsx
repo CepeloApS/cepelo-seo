@@ -43,7 +43,7 @@ async function publishToShopify(token, store, article) {
 
 // ─── CLAUDE API ──────────────────────────────────────────────────────────────
 async function generateArticle(topic) {
-  const res = await fetch("https:///api/claude/v1/messages", {
+  const res = await fetch("https:/api/claude", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
