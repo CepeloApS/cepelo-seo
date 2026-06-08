@@ -47,7 +47,7 @@ async function generateArticle(topic) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: "claude-sonnet-4-5",
+      model: "claude-sonnet-4-6",
       max_tokens: 1000,
       system: `Du er en dansk SEO-tekstforfatter for CEPELO, en dansk leverandør af værkstedsløsninger til autobranchen.
 Skriv på professionelt dansk. Tone: klar, teknisk kompetent, løsningsorienteret, menneskelig.
@@ -508,7 +508,7 @@ function HubSpot({ settings }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "claude-sonnet-4-5",
+          model: "claude-sonnet-4-6",
           max_tokens: 1000,
           system: "Du er en dansk email-skribent for CEPELO. Returner KUN JSON: {\"subject\":\"...\",\"preview\":\"...\",\"html\":\"...\"}",
           messages: [{ role: "user", content: `Skriv en professionel nyhedsmail til ${audience} om: ${subject}. CEPELO brand, dansk, professionel og teknisk kompetent.` }],
