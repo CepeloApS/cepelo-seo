@@ -62,10 +62,15 @@ Artiklen skal have: fængende H2-overskrift, intro-afsnit, 4 sektioner med H3, b
     }),
   });
   const d = await res.json();
+  console.log("RAW API RESPONSE:", JSON.stringify(d));
   const text = d.content?.[0]?.text || "{}";
+  console.log("TEXT FROM API:", text);
   try {
-    return JSON.parse(text.replace(/```json|```/g, "").trim());
-  } catch {
+    const parsed = JSON.parse(text.replace(/```json|```/g, "").trim());
+    console.log("PARSED ARTICLE:", parsed);
+    return parsed;
+  } catch (parseErr) {
+    console.log("JSON PARSE FAILED:", parseErr.message);
     return { title: topic, meta: "", html: `<p>${text}</p>` };
   }
 }
